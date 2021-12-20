@@ -1,0 +1,6 @@
+/python_env/
+/venv/
+.ipynb_checkpoints/
+.idea
+/data/
+.data

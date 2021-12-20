@@ -1,0 +1,35 @@
+version: "3.9"
+
+
+services:
+  emitter:
+    build:
+      context: .
+      target: emitter
+    restart: on-failure
+    environment:
+      BATCHER_HOST: "http://batcher:8000"
+      DATA: "/data/test.csv"
+    volumes:
+      - ./data:/data
+    depends_on:
+      - batcher
+
+  batcher:
+    build:
+      context: .
+      target: batcher
+    expose:
+      - "8000"
+    ports:
+      - "8000:8000"
+
+  collector:
+    build:
+      context: .
+      target: collector
+    environment:
+      BATCHER_HOST: "http://batcher:8000"
+    restart: always
+    depends_on:
+      - batcher
