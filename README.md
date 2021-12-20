@@ -10,6 +10,8 @@ Repo doesn't contain datasets, so if you want to run it locally you need to down
 
 ## jupyter notebooks
 
+There are all notebooks in ```notebooks``` folder.
+
 #### Running locally
 
 In order to run the python notebooks locally you need to install ```pandas``` and ```numpy```, and then run the notebook.
@@ -20,9 +22,9 @@ python -m venv venv
 
 . venv/bin/activate
 
-pip install pandas numpy
+pip install pandas numpy jupyterlab
 
-TODO command to run notebook
+jupyter lab
 ```
 
 
